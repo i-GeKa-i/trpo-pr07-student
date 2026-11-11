@@ -9,13 +9,13 @@ PHP 8.1+ (проверено на 8.4), без фреймворков и Compose
 
 ## Запуск
 
-Из корня репозитория:
-
 ```bash
-php -S localhost:8000 -t public
+git clone https://github.com/i-GeKa-i/trpo-pr07-student.git
+cd trpo-pr07-student
+php -S 127.0.0.1:8000 -t public
 ```
 
-Откройте http://localhost:8000/. Если порт занят — подставьте другой.
+Откройте http://127.0.0.1:8000/. Если порт занят — подставьте другой.
 Проверка маршрутов и контроллеров без браузера:
 
 ```bash
