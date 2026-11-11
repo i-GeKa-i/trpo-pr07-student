@@ -61,14 +61,6 @@ php tests/RouterTest.php
 - **Model** — источник данных (`PageRepository`, `Product`).
 - **View** — только HTML; JSON и CSV не открывает, маршрут не выбирает.
 
-## Что изменялось по шагам (история Git)
-
-1. `chore` — dataset, `.gitignore`.
-2. `feat` — `Router`, `RoutesCsv`, `View`, автозагрузчик.
-3. `feat` — `public/index.php`, layout, CSS (шаг 3: появилась единая точка входа, `Router` подключён к routes.csv).
-4. `feat` — `HomeController`, `ErrorController`, `PageRepository`, представления главной, about, 404, 500.
-5. `feat` — `CatalogController`, `Product`, каталог с тестовыми данными и пустым состоянием.
-6. `test`, `docs` — самопроверка роутера, README и протокол проверки.
 
 ## Обработка ошибок и пустых данных
 
