@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// Единая точка входа: собирает зависимости и передаёт запрос Router. Разметки здесь нет.
 
 use App\Controller\CatalogController;
 use App\Controller\ErrorController;
