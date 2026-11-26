@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// Запуск: php tests/RouterTest.php  (код возврата 1, если проверка не прошла)
 
 use App\Core\Router;
 use App\Core\RoutesCsv;
@@ -23,12 +22,12 @@ $router = new Router(
 
 $cases = [
     ['GET', '/catalog', 'index'],
-    ['GET', '/catalog/', 'index'],      // завершающий слэш
-    ['GET', '/catalog?page=2', 'index'], // query не мешает
-    ['get', '/catalog', 'index'],        // регистр метода
-    ['POST', '/catalog', 'notFound'],    // чужой метод
-    ['GET', '/nope', 'notFound'],        // неизвестный путь
-    ['GET', 'http:///', 'notFound'],     // битый URI
+    ['GET', '/catalog/', 'index'],      
+    ['GET', '/catalog?page=2', 'index'], 
+    ['get', '/catalog', 'index'],        
+    ['POST', '/catalog', 'notFound'],    
+    ['GET', '/nope', 'notFound'],        
+    ['GET', 'http:///', 'notFound'],     
 ];
 $failed = 0;
 foreach ($cases as [$method, $uri, $expected]) {
@@ -40,7 +39,6 @@ foreach ($cases as [$method, $uri, $expected]) {
     }
 }
 
-// Каждая строка dataset/routes.csv должна указывать на существующий метод контроллера.
 $routes = RoutesCsv::load(ROOT . '/dataset/routes.csv');
 if ($routes === []) {
     $failed++;
