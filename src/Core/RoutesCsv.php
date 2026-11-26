@@ -5,12 +5,12 @@ namespace App\Core;
 
 use RuntimeException;
 
-/** Читает dataset/routes.csv (разделитель «;», колонки method;path;controller;action). */
+
 final class RoutesCsv
 {
     private const COLUMNS = ['method', 'path', 'controller', 'action'];
 
-    /** @return list<array{method:string,path:string,controller:string,action:string}> */
+
     public static function load(string $file): array
     {
         $handle = @fopen($file, 'r');
@@ -20,7 +20,7 @@ final class RoutesCsv
 
         $header = fgetcsv($handle, null, ';', '"', '');
         if (is_array($header) && isset($header[0])) {
-            $header[0] = ltrim($header[0], "\xEF\xBB\xBF"); // файл из dataset начинается с BOM
+            $header[0] = ltrim($header[0], "\xEF\xBB\xBF"); 
         }
         if ($header !== self::COLUMNS) {
             fclose($handle);
@@ -30,7 +30,7 @@ final class RoutesCsv
         $routes = [];
         while (($row = fgetcsv($handle, null, ';', '"', '')) !== false) {
             if ($row === [null]) {
-                continue; // пустая строка
+                continue; 
             }
             if (count($row) !== count(self::COLUMNS)) {
                 fclose($handle);
