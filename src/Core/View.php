@@ -6,10 +6,9 @@ namespace App\Core;
 use RuntimeException;
 use Throwable;
 
-/** Единственное место, где данные превращаются в HTML: шаблон + layout. */
 final class View
 {
-    /** @var array<string, mixed> данные, доступные всем шаблонам (например, название магазина) */
+
     private array $shared = [];
 
     public function __construct(private string $viewsPath)
@@ -21,7 +20,7 @@ final class View
         $this->shared[$key] = $value;
     }
 
-    /** @param array<string, mixed> $data */
+
     public function render(string $template, array $data = [], int $status = 200): void
     {
         $vars = $data + $this->shared;
@@ -35,7 +34,7 @@ final class View
         return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
     }
 
-    /** @param array<string, mixed> $vars */
+
     private function capture(string $template, array $vars): string
     {
         $file = $this->viewsPath . '/' . $template . '.php';
@@ -47,7 +46,7 @@ final class View
         try {
             require $file;
         } catch (Throwable $e) {
-            ob_end_clean(); // не отдаём половину страницы
+            ob_end_clean(); 
             throw $e;
         }
         return (string) ob_get_clean();
